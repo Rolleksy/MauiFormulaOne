@@ -1,0 +1,29 @@
+﻿@using DataPuller;
+@using DataPuller.Parsers.Drivers;
+@using Drivers;
+@using System.Text.Json;
+@using System.Net.Http.Json;
+@inject DriversBySeasonData dbsd;
+@inject HttpClient Http;
+@page "/drivers23"
+<h3>Formula 2023 Drivers</h3>
+
+<ul>
+    @foreach (var driver in drivers)
+    {
+        <li>@driver.givenName @driver.familyName - @driver.code, @driver.nationality, Number @driver.permanentNumber</li>
+    }
+</ul>
+
+@code {
+
+    private Driver[] drivers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await Http.GetFromJsonAsync<Driver[]>("https://localhost:7273/Drivers");
+        drivers = response;
+
+    }
+    
+}

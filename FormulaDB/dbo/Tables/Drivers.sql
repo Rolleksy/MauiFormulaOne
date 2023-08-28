@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Drivers]
+(
+	[DriverId] NVARCHAR(50) NOT NULL,
+	[Url] NVARCHAR(100) NOT NULL,
+	[GivenName] NVARCHAR(50) NOT NULL,
+	[FamilyName] NVARCHAR(50) NOT NULL,
+	[DateOfBirth] NVARCHAR(50) NOT NULL,
+	[Nationality] NVARCHAR(50) NOT NULL,
+	[PermanentNumber] NVARCHAR(10) NULL,
+	[Code] NVARCHAR(20) NOT NULL
+)
